@@ -19,7 +19,7 @@ clock = pygame.time.Clock()
 
 # Game loop
 def main():
-    player = Player(50, 100, win)
+    player = Player(50, 100, win, 2)
     run = True
 
     while run:
@@ -32,10 +32,11 @@ def main():
         
         # Update animation
         dt = clock.get_time()  # Get delta time (milliseconds)
-        player.animator.update(dt)  # Update the player's animator
-
+        player.animator.update()  # Update the player's animator
+        player.controller.update()
+        player.state.update_state()
         # Draw the player
-        win.fill(WHITE)  # Clear screen
+        win.fill(BLACK)  # Clear screen
         player.draw()  # Draw the player
 
         # Update the display

@@ -39,3 +39,4 @@ class Animation:
         if reflected:
             return self.reflected_frames[index % self.frame_count]
         return self.frames[index % self.frame_count]
+
